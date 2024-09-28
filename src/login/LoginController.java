@@ -69,7 +69,7 @@ public class LoginController implements Initializable {
             alert.show();
             return;
         }
-
+        
         user = new User(UserNameField.getText(), PasswordField.getText(), false);
         boolean userIsAdmin = User.isUserAdmin(user);
         user.setIs_admin(userIsAdmin);

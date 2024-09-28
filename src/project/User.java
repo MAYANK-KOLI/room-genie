@@ -1,5 +1,5 @@
 package project;
-
+import org.mindrot.jbcrypt.BCrypt;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -55,9 +55,12 @@ public class User {
         List<User> users = DataBase.getUsers();
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getUsername().equals(user.getUsername())) {
-                if (users.get(i).getPassword().equals(user.getPassword())) {
+                System.out.println(users.get(i).getPassword());
+                System.out.print(user.getPassword());
+                if (BCrypt.checkpw(user.getPassword(), users.get(i).getPassword())) {
                     return true;
                 }
+
             }
         }
         return false;

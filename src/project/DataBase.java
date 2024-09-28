@@ -191,6 +191,7 @@ public class DataBase {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(User.class).buildSessionFactory();
+
         // create session
         Session session = factory.getCurrentSession();
 

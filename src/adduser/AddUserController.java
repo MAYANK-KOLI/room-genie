@@ -63,7 +63,9 @@ public class AddUserController implements Initializable {
             System.out.println("1");
             boolean AdminStatus = isAdminButton.isSelected();
             System.out.println("2");
-            User user = new User(UserNameField.getText(), PasswordField.getText(), AdminStatus);
+            String hashedPassword = BCrypt.hashpw(PasswordField.getText(), BCrypt.gensalt());
+            System.out.print(hashedPassword);
+            User user = new User(UserNameField.getText(), hashedPassword, AdminStatus);
             System.out.println("3");
             boolean SaveUser = DataBase.SaveUser(user);
             System.out.println("4");

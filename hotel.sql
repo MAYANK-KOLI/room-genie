@@ -174,7 +174,7 @@ INSERT INTO `room` (`roomID`, `room_Type`, `room_capacity`, `Check_In_Date`, `Ch
 
 CREATE TABLE `user` (
   `user_name` varchar(50) NOT NULL,
-  `user_pass` int(20) NOT NULL,
+  `user_pass` varchar(60) NOT NULL,
   `is_admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
